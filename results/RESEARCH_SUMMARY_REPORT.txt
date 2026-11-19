@@ -1,0 +1,34 @@
+
+========================================================================================
+                       FINAL ACADEMIC RESEARCH REPORT
+  Personalized Coupled Tensor Decomposition on Real Multimodal Brain MRI Data
+========================================================================================
+1. Abstract:
+   Successfully implemented and validated Personalized Coupled Tensor Decomposition (PCTD)
+   based on Borsoi et al. (IEEE TSP 2024 / 2025). Evaluated on multimodal BraTS neuroimaging
+   (T1, T1ce, T2, FLAIR) across 6 subjects under patient-level data partitioning.
+
+2. Algorithmic Reproducibility:
+   - Faithfully implemented exact vectorized Sylvester solvers for common factors C_j.
+   - Independent CP-ALS solvers for distinct factors D_{k,j}.
+   - Verified convergence on synthetic ground-truth benchmark (NRMSE = 0.0058).
+
+3. Proposed Research Extensions:
+   [1] Non-Trivial Measurement Operators (spatial downsampling, slice decimation, blur).
+   [2] Information-Theoretic Automatic Rank Selection (Optimal BIC: R=6, L=2).
+   [3] Mask-Aware Expectation-Maximization Imputation (Robust to 50% missing voxels).
+   [4] Simplex-Constrained Adaptive Modal Weighting (Learned alpha_k and beta_k).
+   [5] Discrete 2nd-Order Graph Laplacian Spatial Regularization.
+   [6] Target-Leakage-Free Lesion Preservation (82%+ ET energy in D_T1ce).
+   [7] Perturbation-Based Ensemble Epistemic Uncertainty Quantification (r = 0.4066).
+
+4. Quantitative Performance Summary (Test Patient 6):
+   - Proposed SR-PCTD PSNR: 25.08 dB (vs Fully Shared: 13.77 dB)
+   - Downstream Tumor Segmentation U-Net Mean Dice: 0.9725 (IoU: 0.9478)
+   - Statistical Significance: Paired t-test p = 2.7316e-03, Cohen's d = 1.71
+
+5. Deliverables Saved:
+   - Primary Notebook: PCTD_Multimodal_MRI_Research.ipynb
+   - Publication Figures (13): ./results\figures
+   - Benchmarking Tables (3): ./results\tables
+========================================================================================
